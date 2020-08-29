@@ -206,7 +206,7 @@ if __name__ == '__main__':
     texto = Text(root)
     S.config(command=texto.yview)
     S.pack(side=tk.RIGHT, fill=Y)
-    texto.config(font=("Verdana", 12), bd=0, padx=1, pady=1, yscrollcommand=S.set, , undo=1)
+    texto.config(font=("Verdana", 12), bd=0, padx=1, pady=1, yscrollcommand=S.set, undo=1)
     texto.pack(expand=True, fill="both")
     texto.bind('<Button-3>', right_click_menu)
     texto.bind('<Button-1>', lambda event: right_click_menu_destroy(right_click_text_menu))
