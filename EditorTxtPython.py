@@ -40,13 +40,13 @@ def select_all(event=None):
 def changeBg():
     (tripple, hexstr) = askcolor()
     if hexstr:
-        text.config(bg=hexstr)
+        texto.config(background=hexstr)
 
 
 def changeFg():
     (triple, hexstr) = askcolor()
     if hexstr:
-        text.config(fg=hexstr)
+        texto.config(fg=hexstr)
 
 
 def bold():
