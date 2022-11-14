@@ -121,7 +121,8 @@ def guardar_como():
     global ruta
     mensaje.set("Guardar fichero como")
 
-    fichero = FileDialog.asksaveasfile(title="Guardar fichero", mode="w", defaultextension=".txt")
+    fichero = FileDialog.asksaveasfile(title="Guardar fichero", mode="w", defaultextension="txt, 
+                                       filetypes=[("Archivos de Texto", "*.txt"), ("Todos los Archivos", "*.*")])")
 
     if fichero is not None:
         ruta = fichero.name
