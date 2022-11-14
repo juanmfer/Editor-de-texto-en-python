@@ -1,3 +1,6 @@
+# Text editor python - tkinter
+#pip install future
+# https://github.com/juanmfer
 import tkinter as tk
 from idlelib import *
 from tkinter import *
