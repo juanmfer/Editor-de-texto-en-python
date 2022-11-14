@@ -11,7 +11,7 @@ from tkinter.colorchooser import askcolor
 from tkinter.font import Font, families
 from tkinter import Menu
 
-global right_click_text_menu
+global right_click_text_menu, ruta
 
 
 # COMANDOS
@@ -104,15 +104,17 @@ def abrir():
 
 
 def guardar():
+    global ruta
     mensaje.set("Guardar fichero")
-    if ruta != "":
+    if ruta == "":
+        guardar_como()
+    else:
         contenido = texto.get(1.0, 'end-1c')
         fichero = open(ruta, 'w+')
         fichero.write(contenido)
         fichero.close()
         mensaje.set("Fichero guardado correctamente")
-    else:
-        guardar_como()
+
 
 
 def guardar_como():
@@ -162,6 +164,7 @@ def acercade():
 
 
 if __name__ == '__main__':
+    ruta = ""
     root = tk.Tk()
     root.title("Editor de Texto")
     w = 700
