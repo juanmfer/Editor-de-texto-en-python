@@ -154,10 +154,10 @@ def acercade():
     acercade1.geometry('%dx%d+%d+%d' % (w, h, x, y))
     #
     # Label acerca de...
-    label = Label(acercade1, text="Editor de texto en Python", height=10, background='#FFFFFF')
+    label = tk.Label(acercade1, text="Editor de texto en Python", height=10, background='#FFFFFF')
     label.pack()
     # Boton salir
-    button1 = Button(acercade1, text="Salir", width=20, command=acercade1.destroy)
+    button1 = tk.Button(acercade1, text="Salir", width=20, command=acercade1.destroy)
     button1.pack(padx=10, pady=10)
 
     # Display untill closed manually
@@ -209,18 +209,19 @@ if __name__ == '__main__':
     right_click_text_menu.add_command(label=' Cortar ', command=lambda: texto.event_generate('<<Cut>>'))
     right_click_text_menu.add_command(label=' Copiar ', command=lambda: texto.event_generate('<<Copy>>'))
     right_click_text_menu.add_command(label=' Pegar ', command=lambda: texto.event_generate('<<Paste>>'))
+    right_click_text_menu.add_command(label=' Seleccionar Todo ', command=select_all)
 
-    S = Scrollbar(root)
-    texto = Text(root)
+    S = tk.Scrollbar(root)
+    texto = tk.Text(root)
     S.config(command=texto.yview)
     S.pack(side=tk.RIGHT, fill=Y)
     texto.config(font=("Verdana", 12), bd=0, padx=1, pady=1, yscrollcommand=S.set, undo=1)
     texto.pack(expand=True, fill="both")
     texto.bind('<Button-3>', right_click_menu)
     texto.bind('<Button-1>', lambda event: right_click_menu_destroy(right_click_text_menu))
-    mensaje = StringVar()
+    mensaje = tk.StringVar()
     mensaje.set("Editor de texto en python")
-    monitor = Label(root, textvar=mensaje, justify='left')
+    monitor = tk.Label(root, textvar=mensaje, justify='left')
     monitor.pack(side="left")
     root.config(menu=menubarra)
     root.mainloop()
