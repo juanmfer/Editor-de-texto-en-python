@@ -121,8 +121,8 @@ def guardar_como():
     global ruta
     mensaje.set("Guardar fichero como")
 
-    fichero = FileDialog.asksaveasfile(title="Guardar fichero", mode="w", defaultextension="txt, 
-                                       filetypes=[("Archivos de Texto", "*.txt"), ("Todos los Archivos", "*.*")])")
+    fichero = FileDialog.asksaveasfile(title="Guardar fichero", mode="w", defaultextension="txt", 
+                                       filetypes=[("Archivos de Texto", "*.txt"), ("Todos los Archivos", "*.*")])
 
     if fichero is not None:
         ruta = fichero.name
@@ -137,8 +137,10 @@ def guardar_como():
 
 
 def acercade():
+    #Mensaje en barra de estado
+    mensaje.set("Acerca de... Editor de Texto en Python")
     # Creo el widget
-    acercade1 = Toplevel(root, background='#FFFFFF')
+    acercade1 = tk.Toplevel(root, background='#FFFFFF')
     acercade1.resizable(False, False)
     # titulo de la ventana
     acercade1.title("Acerca de...")
@@ -154,10 +156,12 @@ def acercade():
     acercade1.geometry('%dx%d+%d+%d' % (w, h, x, y))
     #
     # Label acerca de...
-    label = tk.Label(acercade1, text="Editor de texto en Python", height=10, background='#FFFFFF')
+    label = tk.Label(acercade1, text="Editor de texto en Python", height=3, background='#FFFFFF')
     label.pack()
+    label1 = tk.Label(acercade1, text="Es un simple editor de texto, realizado en python\n con tkinter ", height=8, background='#FFFFFF')
+    label1.pack()
     # Boton salir
-    button1 = tk.Button(acercade1, text="Salir", width=20, command=acercade1.destroy)
+    button1 = tk.Button(acercade1, text="Salir", width=26, height=20, command=lambda:[acercade1.destroy(), mensaje.set("Editor de Texto en Python")])
     button1.pack(padx=10, pady=10)
 
     # Display untill closed manually
